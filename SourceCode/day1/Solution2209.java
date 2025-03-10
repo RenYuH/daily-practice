@@ -1,4 +1,4 @@
-public class Solution1 {
+public class Solution2209 {
 
     public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
         int n = floor.length();
@@ -39,7 +39,7 @@ public class Solution1 {
     }
 
     public static void main(String[] args) {
-        Solution1 solution = new Solution1();
+        Solution2209 solution = new Solution2209();
         String floor = "10110111";
         int numCarpets = 2;
         int carpetLen = 2;

@@ -1,8 +1,8 @@
-class Solution2 {
+class Solution2595 {
 
     public static void main(String[] args) {
-        Solution2 solution2 = new Solution2();
-        int[] arr= solution2.evenOddBit(50);
+        Solution2595 solution2595 = new Solution2595();
+        int[] arr= solution2595.evenOddBit(50);
         for (int i: arr){
             System.out.println(i);
         }

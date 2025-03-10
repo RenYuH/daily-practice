@@ -1,0 +1,11 @@
+132. 分割回文串 II
+
+给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是回文串。
+
+返回符合要求的 最少分割次数 。
+
+132. Palindrome Partitioning II
+
+Given a string s, partition s such that every substring of the partition is a palindrome.
+
+Return the minimum cuts needed for a palindrome partitioning of s.
