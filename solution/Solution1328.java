@@ -1,5 +1,3 @@
-package day9;
-
 public class Solution1328 {
 
     public static void main(String[] args) {

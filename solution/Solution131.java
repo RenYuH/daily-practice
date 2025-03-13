@@ -1,12 +1,10 @@
-package day5;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Solution131 {
 
     public static void main(String[] args) {
-        List<List<String>> result = new day5.Solution131().partition("abcccd");
+        List<List<String>> result = new Solution131().partition("abcccd");
         System.out.println(result);
     }
 

@@ -116,3 +116,85 @@ dp[i] = max(dp[i-1], dp[i-2] + nums[i])
   }
   }
 ```
+
+## Manacher 算法的核心思想
+
+1. 预处理字符串：
+
+- 在原始字符串的每个字符之间插入一个特殊字符（例如 #），将字符串统一为奇数长度。
+
+- 例如，字符串 "abba" 会被预处理为 "#a#b#b#a#"。
+
+2. 利用回文串的对称性：
+
+- 维护一个数组 p[]，其中 p[i] 表示以位置 i 为中心的最长回文半径。
+
+- 维护两个变量：
+
+- center：当前已知的最右回文串的中心位置。
+
+- maxRight：当前已知的最右回文串的右边界。
+
+3. 动态扩展回文半径：
+
+- 对于每个位置 i，利用对称性快速初始化 p[i]，然后尝试扩展回文半径。
+
+- 如果 i 在 maxRight 的范围内，则可以利用对称位置 mirror_i 的值来初始化 p[i]。
+
+4. 更新最右回文串：
+
+- 如果以 i 为中心的回文串的右边界超过了 maxRight，则更新 center 和 maxRight。
+
+## KMP（Knuth-Morris-Pratt）字符串匹配算法
+
+- KMP 算法（Knuth-Morris-Pratt Algorithm）是一种高效的字符串匹配算法，用于在主串 S 中查找模式串 P 的所有匹配位置利用模式串自身的重复结构来避免不必要的匹配回溯，从而降低匹配过程的时间复杂度 。
+
+🔹 KMP 的优化点：
+
+在匹配过程中，KMP 通过模式串 P 预处理出 next 数组，用于决定当某个字符匹配失败时，P 应该跳转到哪个位置继续匹配，避免重复比较 。
+**最坏时间复杂度降至 `*，比暴力匹配法快很多 。
+
+```
+void KMP(String S, String P) {
+    int n = S.length(), m = P.length();
+    int[] next = new int[m];
+    buildNext(P, next);
+
+    int j = 0; // P 的索引
+    for (int i = 0; i < n; i++) { // 遍历 S
+        while (j > 0 && S.charAt(i) != P.charAt(j)) {
+            j = next[j - 1]; // 发生失配，跳转
+        }
+        if (S.charAt(i) == P.charAt(j)) {
+            j++; // 继续匹配下一个字符
+        }
+        if (j == m) { // 找到 P 的完整匹配
+            System.out.println("匹配起始位置: " + (i - m + 1));
+            j = next[j - 1]; // 继续查找下一个匹配
+        }
+    }
+}
+
+def buildNext(patt):
+"""
+计算next数组
+"""
+    next = [0]
+    prefix_len = 0
+    i = 1
+    while i < len(patt):
+        if patt[prefix_len] = patt[i]
+            prefix_len += 1
+            next.append(prefix_len)
+            i+= 1
+        else:
+            if patt_len == 0
+                next.append[0]
+                i += 1
+            else:
+                prefix_len = next[prefix_len - 1]
+    return next
+```
+
+![img_1.png](img_1.png)
+

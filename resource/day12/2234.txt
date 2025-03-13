@@ -1,0 +1,23 @@
+2234. 花园的最大总美丽值
+
+Alice 是 n 个花园的园丁，她想通过种花，最大化她所有花园的总美丽值。
+
+给你一个下标从 0 开始大小为 n 的整数数组 flowers ，其中 flowers[i] 是第 i 个花园里已经种的花的数目。已经种了的花 不能 移走。同时给你 newFlowers ，表示 Alice 额外可以种花的 最大数目 。同时给你的还有整数 target ，full 和 partial 。
+
+如果一个花园有 至少 target 朵花，那么这个花园称为 完善的 ，花园的 总美丽值 为以下分数之 和 ：
+
+完善 花园数目乘以 full.
+剩余 不完善 花园里，花的 最少数目 乘以 partial 。如果没有不完善花园，那么这一部分的值为 0 。
+请你返回 Alice 种最多 newFlowers 朵花以后，能得到的 最大 总美丽值。
+
+2234. Maximum Total Beauty of the Gardens
+
+Alice is a caretaker of n gardens and she wants to plant flowers to maximize the total beauty of all her gardens.
+
+You are given a 0-indexed integer array flowers of size n, where flowers[i] is the number of flowers already planted in the ith garden. Flowers that are already planted cannot be removed. You are then given another integer newFlowers, which is the maximum number of flowers that Alice can additionally plant. You are also given the integers target, full, and partial.
+
+A garden is considered complete if it has at least target flowers. The total beauty of the gardens is then determined as the sum of the following:
+
+The number of complete gardens multiplied by full.
+The minimum number of flowers in any of the incomplete gardens multiplied by partial. If there are no incomplete gardens, then this value will be 0.
+Return the maximum total beauty that Alice can obtain after planting at most newFlowers flowers.

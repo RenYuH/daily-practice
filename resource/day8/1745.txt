@@ -1,0 +1,11 @@
+1745. 分割回文串 IV
+
+给你一个字符串 s ，如果可以将它分割成三个 非空 回文子字符串，那么返回 true ，否则返回 false 。
+
+当一个字符串正着读和反着读是一模一样的，就称其为 回文字符串 。
+
+1745. Palindrome Partitioning IV
+
+Given a string s, return true if it is possible to split the string s into three non-empty palindromic substrings. Otherwise, return false.
+
+A string is said to be palindrome if it the same string when reversed.
