@@ -198,3 +198,95 @@ def buildNext(patt):
 
 ![img_1.png](img_1.png)
 
+## LaTex公式
+
+![img_2.png](img_2.png)
+
+- 这是一个行内公式：$E = mc^2$。
+- 这是一个独立公式：$$ \int_{a}^{b} f(x) \, dx $$
+- 分数：$\frac{a}{b}$
+- 根号：$\sqrt{x}$
+- 求和：$\sum_{i=1}^{n} i$
+- 矩阵：
+  $$
+  \begin{matrix}
+  a & b \\
+  c & d
+  \end{matrix}
+  $$
+
+## 埃拉托色尼筛法 (Sieve of Eratosthenes)
+
+- 埃拉托色尼筛法是一种用于求小于等于 n 的所有质数的高效算法。
+
+算法原理
+1. 初始化：
+创建一个布尔数组 isPrime[max + 1]，初始时所有值设为 true，表示所有数都是质数。
+将 isPrime[0] 和 isPrime[1] 设为 false，因为 0 和 1 不是质数。
+2. 筛选过程：
+遍历 2 到 √max 的所有数：
+如果 isPrime[i] 仍然是 true，说明 i 是质数。
+通过 i 的倍数 j = i * i, i * i + i, ... 标记所有 j 为 非质数 (false)。
+3. 返回结果：
+经过筛选后，仍为 true 的索引就是 质数。
+
+```
+private boolean[] sieve(int max) {
+    boolean[] isPrime = new boolean[max + 1];
+    Arrays.fill(isPrime, true);
+    isPrime[0] = isPrime[1] = false; // 0 和 1 不是质数
+
+    for (int i = 2; i * i <= max; i++) {
+        if (isPrime[i]) {
+            for (int j = i * i; j <= max; j += i) {
+                isPrime[j] = false; // 标记 `j` 为非质数
+            }
+        }
+    }
+    return isPrime;
+}
+```
+
+## 调和级数（Harmonic Series）
+
+- 调和级数是指以下形式的无穷级数：
+
+$$ Hn= 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + ... + \frac{1}{n}
+$$
+
+即：
+
+$$ H_n = \sum_{i=1}^{n} \frac{1}{i} $$
+
+- 调和级数的增长速度
+
+虽然每项$$\frac{1}{i}$$变得越来越小，但调和级数的和 增长是无界的（即趋向于无穷大），但它的增长速度比线性增长 O(n) 慢得多，接近 对数增长 O(logn)。
+
+数学上有近似公式：
+
+$$H_n \approx \ln n + \gamma$$
+
+其中：
+
+$$\ln n$$ 是自然对数。
+γ 是欧拉-马歇罗尼常数（Euler-Mascheroni Constant），大约等于 0.577。
+
+所以：
+
+$$H_n = O(\log n)$$
+
+换句话说，调和级数的增长速度是对数级别的，即：
+
+$$H_n \approx \ln n$$
+
+- 调和级数的实际应用
+
+1. 埃拉托色尼筛法（Sieve of Eratosthenes）分析中出现 O(nloglogn)。
+2. 快速算法分析：如某些分治算法、数据结构（如堆）的复杂度计算。
+3. 计算机科学中的概率分析：
+- 随机选择算法（如快排的期望时间复杂度）。
+- 数据流算法（如滑动窗口算法的分析）。
+4. 网络和分布系统：
+- 研究 幂律分布（Power-law distribution），如社交网络的连接模式。
+
+

@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution2234 {
 
     public static void main(String[] args) {
-        int[] flowers = new int[]{2,4,5,3};
+        int[] flowers = new int[]{2, 4, 5, 3};
         int newFlowers = 10, target = 5, full = 2, partial = 6;
         long result = new Solution2234().maximumBeauty(flowers, newFlowers, target, full, partial);
         System.out.println(result);
