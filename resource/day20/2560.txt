@@ -1,0 +1,27 @@
+2560. 打家劫舍 IV
+
+沿街有一排连续的房屋。每间房屋内都藏有一定的现金。现在有一位小偷计划从这些房屋中窃取现金。
+
+由于相邻的房屋装有相互连通的防盗系统，所以小偷 不会窃取相邻的房屋 。
+
+小偷的 窃取能力 定义为他在窃取过程中能从单间房屋中窃取的 最大金额 。
+
+给你一个整数数组 nums 表示每间房屋存放的现金金额。形式上，从左起第 i 间房屋中放有 nums[i] 美元。
+
+另给你一个整数 k ，表示窃贼将会窃取的 最少 房屋数。小偷总能窃取至少 k 间房屋。
+
+返回小偷的 最小 窃取能力。
+
+2560. House Robber IV
+
+There are several consecutive houses along a street, each of which has some money inside. There is also a robber, who wants to steal money from the homes, but he refuses to steal from adjacent homes.
+
+The capability of the robber is the maximum amount of money he steals from one house of all the houses he robbed.
+
+You are given an integer array nums representing how much money is stashed in each house. More formally, the ith house from the left has nums[i] dollars.
+
+You are also given an integer k, representing the minimum number of houses the robber will steal from. It is always possible to steal at least k houses.
+
+Return the minimum capability of the robber out of all the possible ways to steal at least k houses.
+
+

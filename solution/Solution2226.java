@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public class Solution2226 {
 
@@ -6,66 +5,38 @@ public class Solution2226 {
         System.out.println(new Solution2226().maximumCandies(new int[]{1,2,6,8,6,7,3,5,2,5}, 3));
     }
 
+    //二分查找
     public int maximumCandies(int[] candies, long k) {
-        Arrays.sort(candies);
-        long sum = 0;
+        if (k == 0) return 0;  // 特殊情况
+
+        int low = 1, high = 0;
         for (int candy : candies) {
-            sum += candy;
+            high = Math.max(high, candy);  // 找到糖果堆中的最大值
         }
-        if (sum < k) {
-            return 0;
+
+        int result = 0;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (canDistribute(candies, k, mid)) {
+                result = mid;  // `mid` 可行，尝试更大的值
+                low = mid + 1;
+            } else {
+                high = mid - 1; // `mid` 过大，尝试更小的值
+            }
         }
-        long j = (sum / k);
-        return find(candies, j, k);
+        return result;
     }
 
-    public int find(int[] candies, long j, long k) {
-        long temp = k;
-        int index = -1;
-        boolean flag = true;
-        if (candies[0] > j){
-            index = 0;
-            flag = false;
-        }else if (candies[candies.length - 1] < j){
-            index = -1;
-        }else{
-            for (int i = 0; i < candies.length - 1; i++) {
+    // 判断是否能以 `candiesPerChild` 分配至少 `k` 份
+    private boolean canDistribute(int[] candies, long k, int candiesPerChild) {
+        if (candiesPerChild == 0) return false;
 
-                if ((candies[i + 1] > j && candies[i] < j)) {
-                    index = i;
-                    break;
-                }else if((candies[i] == j)){
-                    index = i;
-                    flag = false;
-                    break;
-                }else if((candies[i + 1] == j)){
-                    index = i;
-                    break;
-                }
-            }
+        long count = 0;
+        for (int candy : candies) {
+            count += candy / candiesPerChild; // 计算总共可以分出的份数
+            if (count >= k) return true;  // 只要能满足 `k` 份就返回
         }
-        if (index == -1){
-            j--;
-            return find(candies, j, k);
-        }else{
-            if (flag){
-                for (int i = candies.length - 1; i > index; i--) {
-                    long m = candies[i] / j;
-                    temp -= m;
-                }
-            }else{
-                for (int i = candies.length - 1; i >= index; i--) {
-                    long m = candies[i] / j;
-                    temp -= m;
-                }
-            }
-
-            if (temp > 0) {
-                j--;
-                return find(candies, j, k);
-            } else {
-                return (int) j;
-            }
-        }
+        return count >= k;
     }
 }
