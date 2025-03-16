@@ -1,0 +1,19 @@
+2594. Minimum Time to Repair Cars
+
+You are given an integer array ranks representing the ranks of some mechanics. ranksi is the rank of the ith mechanic. A mechanic with a rank r can repair n cars in r * n2 minutes.
+
+You are also given an integer cars representing the total number of cars waiting in the garage to be repaired.
+
+Return the minimum time taken to repair all the cars.
+
+Note: All the mechanics can repair the cars simultaneously.
+
+2594. 修车的最少时间
+
+给你一个整数数组 ranks ，表示一些机械工的 能力值 。ranks[i] 是第 i 位机械工的能力值。能力值为 r 的机械工可以在 r * n平方 分钟内修好 n 辆车。
+
+同时给你一个整数 cars ，表示总共需要修理的汽车数目。
+
+请你返回修理所有汽车 最少 需要多少时间。
+
+注意：所有机械工可以同时修理汽车。
